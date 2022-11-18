@@ -25,13 +25,13 @@
   align-items: center; */
   flex-direction: column;
 }
-.item1 .img img {
-  background: url("../../../../public/img/imgHomePage/air-zoom-alphafly-next-2-road-racing-shoes-cVPHCD.png");
+.card .card_img img{
+  width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
   object-fit: contain;
 }
-.item1 .text {
+.card .card_text{
   display: flex;
   justify-content: space-between;
 }
