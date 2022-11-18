@@ -6,11 +6,11 @@ import VideoHomePage from './videoHomePage/VideoHomePage'
 
 export default function HomePage() {
   return (
-    <div style={{maxWidth:"1280px",marginLeft:"128px"}}>
+    <div style={{margin:"0 5rem"}}>
       <VideoHomePage/>
       <Feature/>
       <TrendingHomePage/>
       <PacePackHomePage/>
     </div>
-  )
+)
 }

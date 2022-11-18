@@ -16,9 +16,9 @@ export default function App() {
   const data = [
     { img: "/img/imgHomePage/1.png", conten: "123", price: "100" },
     { img: "/img/imgHomePage/1.png", conten: "123", price: "100" },
-    { img: "/img/imgHomePage/2.png", conten: "123", price: "100" },
-    { img: "/img/imgHomePage/2.png", conten: "123", price: "100" },
-    { img: "/img/imgHomePage/2.png", conten: "123", price: "100" },
+    { img: "/img/imgHomePage/1.png", conten: "123", price: "100" },
+    { img: "/img/imgHomePage/1.png", conten: "123", price: "100" },
+    { img: "/img/imgHomePage/1.png", conten: "123", price: "100" },
   ];
   return (
     <>
