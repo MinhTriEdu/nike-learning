@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import FooterBody from './footer-body/FooterBody';
 import FooterEnd from './footer-end/FooterEnd';
 
-export default function Footer() {
+export default function FooterMain() {
     
     return (
         <Fragment>
