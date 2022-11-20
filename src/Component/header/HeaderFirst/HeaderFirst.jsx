@@ -12,19 +12,19 @@ export default function HeaderFirst() {
                     <a href="" className="group text-[12px] mx-[10px] relative">
                         <span className='group-hover:opacity-60'>Help</span>
                         <div className="
-                        absolute w-[240px] rounded-lg p-[20px] bg-white right-0 top-full hidden
+                        absolute w-[240px] rounded-lg p-[20px] bg-white right-0 top-full hidden z-10
                         group-hover:block
                         ">
                             <h1 className='text-[16px] text-[#11111]' >Help</h1>
-                            <ul className='text-[14px] text-[#757575]'>
-                                <li className="py-1">Order Status</li>
-                                <li className="py-1">Dispatch and Delivery</li>
-                                <li className="py-1">Returns</li>
-                                <li className="py-1">Contact Us</li>
-                                <li className="py-1">Privacy Policy</li>
-                                <li className="py-1">Terms of Sale</li>
-                                <li className="py-1">Terms of Use</li>
-                                <li className="py-1">Send Us Feedback</li>
+                            <ul className='text-[14px] text-[#757575] mt-2'>
+                                <li className="py-1 hover:text-[#111]">Order Status</li>
+                                <li className="py-1 hover:text-[#111]">Dispatch and Delivery</li>
+                                <li className="py-1 hover:text-[#111]">Returns</li>
+                                <li className="py-1 hover:text-[#111]">Contact Us</li>
+                                <li className="py-1 hover:text-[#111]">Privacy Policy</li>
+                                <li className="py-1 hover:text-[#111]">Terms of Sale</li>
+                                <li className="py-1 hover:text-[#111]">Terms of Use</li>
+                                <li className="py-1 hover:text-[#111]">Send Us Feedback</li>
                             </ul>
                         </div>
                     </a>
