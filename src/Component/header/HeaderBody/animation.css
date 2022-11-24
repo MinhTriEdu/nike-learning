@@ -1,0 +1,61 @@
+@media only screen and (min-width: 768px) {
+    .header-open-animation {
+        animation: headerTopOpen 0.6s linear;
+    }
+
+    .header-close-animation {
+        animation: headerTopClose 0.5s linear;
+    }
+    .pop-up{
+        padding: 0;
+        margin: 0;
+        line-height: 10px;
+        display: inline-block;
+        animation: popUp 0.9s linear;
+    }
+}
+
+@keyframes headerTopOpen {
+    0% {
+        top: 32px
+    }
+
+    50% {
+        top: 32px
+    }
+
+    100% {
+        top: 0px
+    }
+}
+
+@keyframes headerTopClose {
+    0% {
+        transform: translateY(-32px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes popUp {
+    0%{
+        opacity: 0;
+    }
+    66%{
+        opacity: 0;
+        transform: scale(0) translateY(-50%);;
+    }
+    75%{
+        
+        transform: scale(1) translateY(-50%);;
+    }
+    85%{
+        transform: scale(1.2) translateY(-50%);;
+    }
+    100%{
+        transform: scale(1) translateY(-50%);;
+
+    }
+}
