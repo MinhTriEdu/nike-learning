@@ -4,7 +4,10 @@ import jordanLogo from '../img/jordan-2.svg'
 export default function HeaderFirst() {
     
     return (
-        <div className='w-full bg-[#f5f5f5]'>
+        <div className='
+        md:block
+        px-4 hidden w-full bg-[#f5f5f5]
+        '>
             <div className="max-w-[1400px] mx-auto py-1 flex justify-between">
                 <img className='w-5 cursor-pointer hover:opacity-60' src={jordanLogo} alt="" />
                 <div className="font-[Helvetica]">

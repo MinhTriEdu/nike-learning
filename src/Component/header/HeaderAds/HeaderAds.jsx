@@ -2,7 +2,9 @@ import React from 'react'
 import './animation.css'
 export default function HeaderAds() {
     return (
-        <div className="w-full bg-[#f5f5f5] py-2 overflow-hidden">
+        <div className="
+        w-full bg-[#f5f5f5] py-2 overflow-hidden
+        ">
             <div className="w-[400%] flex wipe-out">
                 <div className="text-center w-[25%]">
                     <h1 className="text-[16px]">Hello Nike App</h1>
