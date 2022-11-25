@@ -5,13 +5,20 @@ import data from './dataSubMenu.jsx'
 import './animation.css'
 import { BiMenu } from "react-icons/bi";
 import { useMediaQuery } from 'react-responsive'
+import MenuNavBar from '../MenuNavBar/MenuNavBar';
 
 
 
 export default function HeaderBody() {
     const [show, setShow] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
+    const [searchClick, setSearchClick] = useState(false)
+    const [menuClick,setMenuClick] = useState(false);
+    const handleMenuClick = ()=>{
+        setMenuClick(!menuClick);
+    }
     const controlNavbar = () => {
+        console.log(show);
         if (typeof window !== 'undefined') {
             if (window.scrollY > 32 && window.scrollY > lastScrollY) { // if scroll down hide the navbar
                 setShow(false);
@@ -23,7 +30,6 @@ export default function HeaderBody() {
             setLastScrollY(window.scrollY);
         }
     };
-    console.log(window.scrollY);
     useEffect(() => {
         if (typeof window !== 'undefined') {
             window.addEventListener('scroll', controlNavbar);
@@ -35,7 +41,6 @@ export default function HeaderBody() {
         }
     }, [lastScrollY]);
 
-    const [searchClick, setSearchClick] = useState(false)
 
 
 
@@ -120,7 +125,7 @@ export default function HeaderBody() {
             <div id='header-body' className={`
                 w-full bg-white transition-all z-10
                 ${show ? (window.pageYOffset > 32 ? 'fixed top-[0px]' : 'top-[0px]') : 'fixed top-[-100px]'}
-                ${searchClick ? (window.pageYOffset > 32 ? 'fixed' : 'fixed header-open-animation') : (window.pageYOffset < 4? 'header-close-animation':'')}
+                ${searchClick ? (window.pageYOffset > 32 ? 'fixed' : 'fixed header-open-animation') : (window.pageYOffset > 32?'':'header-close-animation')}
                 `}>
                 <div className="w-full h-[60px] relative">
                     <div className="max-w-[1400px] mx-auto flex justify-between items-center h-full">
@@ -220,11 +225,13 @@ export default function HeaderBody() {
                             lg:hidden
                              menu-header hover:bg-[#e5e5e5] rounded-full p-2 cursor-pointer
                              ${searchClick ? 'hidden' : ''}
-                            `}>
+                            `} onClickCapture={handleMenuClick}>
                                 <BiMenu className={`
                                 text-[26px]
-                                `}></BiMenu>
+                                `}>
+                                </BiMenu>
                             </div>
+                            {menuClick?<MenuNavBar onExit={handleMenuClick}></MenuNavBar>:undefined}
                             <div className={`
                             cancel-search 
                             absolute top-1/2 -translate-y-1/2 right-4 hover:opacity-70 cursor-pointer

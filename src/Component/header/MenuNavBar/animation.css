@@ -1,0 +1,11 @@
+.wipe-in{
+    animation: WipeIn 0.2s linear;
+}
+@keyframes WipeIn {
+    from{
+        right: -300px;
+    }
+    to{
+        right: 0;
+    }
+}
