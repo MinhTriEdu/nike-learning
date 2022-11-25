@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import nikeLogo from '../img/Logo_NIKE.png'
 import ChildMenu from './ChildMenu';
-import data from './dataSubMenu.jsx'
+import data from './dataSubMenu.js'
 import './animation.css'
 import { BiMenu } from "react-icons/bi";
 import { useMediaQuery } from 'react-responsive'
@@ -127,10 +127,10 @@ export default function HeaderBody() {
                 ${show ? (window.pageYOffset > 32 ? 'fixed top-[0px]' : 'top-[0px]') : 'fixed top-[-100px]'}
                 ${searchClick ? (window.pageYOffset > 32 ? 'fixed' : 'fixed header-open-animation') : (window.pageYOffset > 32?'':'header-close-animation')}
                 `}>
-                <div className="w-full h-[60px] relative">
+                <div className="w-full h-[60px] relative px-4">
                     <div className="max-w-[1400px] mx-auto flex justify-between items-center h-full">
                         <img className={`
-                            h-5 pl-4
+                            h-5
                             lg:block
                             ${searchClick ? 'hidden' : ''}
                         `} src={nikeLogo} alt="" />
@@ -181,7 +181,7 @@ export default function HeaderBody() {
 
                             </div>
                         </div>
-                        <div className="flex justify-center items-center relative pr-4">
+                        <div className="flex justify-center items-center relative">
                             <div className={`
                             heart-header
                             lg:block ${searchClick ? 'lg:invisible' : ''}

@@ -2,8 +2,7 @@ import React from 'react'
 import { FiChevronLeft } from "react-icons/fi";
 import data from './data'
 
-export default function SubSubNavBar(props) {
-    
+export default function SubSubNavBar(props) {    
   return (
     <div className='fixed h-[100%] w-[300px] bg-white bottom-0 right-[0px] px-[30px] text-[#111]'> 
       <div className="mt-[60px]">
