@@ -18,14 +18,13 @@ export default function HeaderBody() {
         setMenuClick(!menuClick);
     }
     const controlNavbar = () => {
-        console.log(show);
         if (typeof window !== 'undefined') {
             if (window.scrollY > 32 && window.scrollY > lastScrollY) { // if scroll down hide the navbar
                 setShow(false);
             } else { // if scroll up show the navbar
                 setShow(true);
             }
-
+            
             // remember current page location to use in the next move
             setLastScrollY(window.scrollY);
         }
@@ -120,15 +119,18 @@ export default function HeaderBody() {
                 ${searchClick ? '' : 'hidden'}
                 fixed inset-0 bg-black opacity-50 z-10
                 `}
-            >
+            >s
             </div>
             <div id='header-body' className={`
                 w-full bg-white transition-all z-10
-                ${show ? (window.pageYOffset > 32 ? 'fixed top-[0px]' : 'top-[0px]') : 'fixed top-[-100px]'}
+                ${show ? (window.pageYOffset > 32 ? 'fixed top-[0px]' : 'top-[0px]') : 'fixed top-[-60px]'}
                 ${searchClick ? (window.pageYOffset > 32 ? 'fixed' : 'fixed header-open-animation') : (window.pageYOffset > 32?'':'header-close-animation')}
                 `}>
-                <div className="w-full h-[60px] relative px-4">
-                    <div className="max-w-[1400px] mx-auto flex justify-between items-center h-full">
+                <div className="
+                lg:px-9
+                w-full h-[60px] relative px-4
+                ">
+                    <div className="mx-auto flex justify-between items-center h-full">
                         <img className={`
                             h-5
                             lg:block
@@ -138,7 +140,7 @@ export default function HeaderBody() {
                             navbar-header
                             xl:pr-0
                             lg:flex ${searchClick ? 'lg:hidden' : ''}
-                            hidden pr-[60px] items-center justify-center absolute top-0 left-0 w-[100vw]
+                            hidden pr-[60px] items-center justify-center absolute top-0 left-0 w-full
                             `}
                         >
                             <RenderNavBar></RenderNavBar>
@@ -205,7 +207,7 @@ export default function HeaderBody() {
                             cart-header
                             lg:mx-0 lg:block 
                             ${searchClick ? 'invisible' : ''}
-                            mx-4 hover:bg-[#e5e5e5] rounded-full p-2 cursor-pointer
+                            mx-4 hover:bg-[#e5e5e5] rounded-full cursor-pointer p-2
                             `}>
                                 <svg
                                     aria-hidden="true"

@@ -1,0 +1,12 @@
+.roll-down{
+    animation: rollDown 0.3s linear;
+}
+
+@keyframes rollDown {
+    from{
+        transform: translateY(-100%);
+    }
+    to{
+        transform: translateY(0);
+    }
+}
