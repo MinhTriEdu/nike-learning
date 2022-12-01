@@ -1,0 +1,12 @@
+.loading-item{
+    animation: LoadingItem 0.5s linear infinite;
+}
+
+@keyframes LoadingItem {
+    from{
+        top: -100px;
+    }
+    to{
+        top: 100%
+    }
+}

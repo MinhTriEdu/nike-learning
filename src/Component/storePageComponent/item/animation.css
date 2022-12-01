@@ -1,0 +1,12 @@
+.appear{
+    animation: Appear 0.1s ease-in;
+}
+
+@keyframes Appear {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}

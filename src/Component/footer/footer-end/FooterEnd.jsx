@@ -3,10 +3,25 @@ import SubNav from './SubNav'
 
 export default function FooterEnd() {
     return (
-        <div className="w-full bg-[#111111] py-[10px]">
-            <div className="max-w-[1400px] mx-auto flex justify-between">
-                <div className="flex items-center">
-                    <div className="location flex">
+        <div className="
+        sm:pt-2
+        lg:px-9
+        w-full bg-[#111111] py-2 px-4 pt-10
+        ">
+            <div className="
+            max-w-[1440px] mx-auto flex justify-between
+            sm:flex-row
+            flex-col
+            ">
+                <div className="
+                flex 
+                sm:flex-row sm:items-center
+                flex-col
+                ">
+                    <div className="
+                    location 
+                    flex
+                    ">
                         <div className="">
                             <svg aria-hidden="true" viewBox="0 0 24 24" width={18} height={15}>
                                 <path
@@ -19,27 +34,47 @@ export default function FooterEnd() {
                         </div>
                         <p className='text-[12px] text-white mx-2'>VietNam</p>
                     </div>
-                    <div className="copyright">
-                        <p className='text-[12px] p-2 text-[#7e7e7e]'>© 2022 Nike, Inc. All Rights Reserved</p>
-                    </div>
+                    <p className='
+                    copyright text-[12px] text-[#7e7e7e] py-2 sm:px-2 whitespace-nowrap
+
+                    '>© 2022 Nike, Inc. All Rights Reserved</p>
                 </div>
                 <div className="policy">
-                    <ul className='flex'>
+                    <ul className='
+                    flex flex-wrap justify-end
+                    sm:flex-row sm:mt-0 sm:-mx-4
+                    flex-col mt-2 
+                    '>
                         <li className="
                         group
-                        text-[12px] p-2 mx-2 text-[#7e7e7e] relative
                         hover:text-white
+                        text-[12px] py-2 text-[#7e7e7e] relative
+                        sm:mx-2 sm:my-0 sm:px-2
+                        mx-0 my-2 
                         ">Guide
                             <div className="
-                            absolute bottom-full -translate-x-1/2 hidden
+                            sm:w-[45vw] sm:-translate-x-1/2
+                            absolute left-0 bottom-full hidden w-full
                             group-hover:block
                             ">
                                 <SubNav ></SubNav>
                             </div>
                         </li>
-                        <li className="text-[12px] p-2 mx-2 text-[#7e7e7e] hover:text-white">Terms of Sale</li>
-                        <li className="text-[12px] p-2 mx-2 text-[#7e7e7e] hover:text-white">Terms of Use</li>
-                        <li className="text-[12px] p-2 mx-2 text-[#7e7e7e] hover:text-white">Nike Privacy Policy</li>
+                        <li className="
+                        sm:mx-2 sm:my-0 sm:px-2
+                        mx-0 my-2
+                        text-[12px] py-2 text-[#7e7e7e] hover:text-white
+                        ">Terms of Sale</li>
+                        <li className="
+                        sm:mx-2 sm:my-0 sm:px-2
+                        mx-0 my-2
+                        text-[12px] py-2 text-[#7e7e7e] hover:text-white
+                        ">Terms of Use</li>
+                        <li className="
+                        sm:mx-2 sm:my-0 sm:px-2
+                        mx-0 my-2
+                        text-[12px] py-2 text-[#7e7e7e] hover:text-white
+                        ">Nike Privacy Policy</li>
                     </ul>
                 </div>
             </div>
