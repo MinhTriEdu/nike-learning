@@ -9,65 +9,79 @@ import data from './data'
 import './animation.css'
 
 export default function MenuNavBar(props) {
+  const [menuShow, setMenuShow] = useState(props.show)
+  const [navBarClick, setNavBarClick] = useState('')
+
+
+  const handleNavBarClick = () => {
+    setNavBarClick('')
+  }
+
   useEffect(() => {
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.body.style.overflow = 'visible'
-    }
-  }, [])
+    if (props.show){
+      document.body.style.overflow = 'hidden'
+      setMenuShow(true)
+    } 
+  }, [props.show])
+
   const onAnimationEnd = () => {
+    if (!props.show){
+      setMenuShow(false);
+      document.body.style.overflow = 'visible'
+    } 
+  };
 
+  const arrayHaveSubNav = ['Men', 'Women', 'Kids', 'Customise', 'Sale', 'Gifts 🎁'];
+  const arrayNotSubNav = ['SNKRS'];
+  const getArrTitleByName = (data, name) => {
+    const newdata = data.find(element => element.name == name)
+    return newdata.category.map((element) => element.title)
   }
-  function RenderSubNav() {
-    const arrayHaveSubNav = ['Men', 'Women', 'Kids', 'Customise', 'Sale', 'Gifts 🎁'];
-    const arrayNotSubNav = ['SNKRS'];
-
-    const getArrTitleByName = (data, name) => {
-      const newdata = data.find(element => element.name == name)
-      return newdata.category.map((element) => element.title)
-    }
-
-    const [nameClick, setNameClick] = useState('')
-
-    const handleNameClick = () => {
-      setNameClick('');
-    }
-
-    return (<Fragment>
-      {arrayHaveSubNav.map((navBarName, index) => (
-        <div key={index} className="">
-          <li key={index} id={`sub-item-${index}`}
-            className='
-          group flex justify-between items-center py-[10px] cursor-pointer
-          ' onClick={() => setNameClick(`${navBarName}`)}>
-            <p className='
-                  text-[#111] text-[24px]
-                  '>{navBarName}
-            </p>
-            <FiChevronRight className='text-[22px]'></FiChevronRight>
-          </li>
-          {(nameClick == navBarName) ? <SubNavBarMenu prev='All' name={navBarName} arr={getArrTitleByName(data, navBarName)} handleNameClick={handleNameClick}
-          ></SubNavBarMenu> : undefined}
-        </div>
-      ))}
-      {arrayNotSubNav.map((navBarName, index) => (
-        <li key={index} id={`sub-item-${index}`} className='group flex items-center py-[10px] cursor-pointer'>
-          <p className='
-                  text-[#111] text-[24px]
-                  '>{navBarName}
-          </p>
-        </li>
-      ))}
-    </Fragment>)
-  }
-  return (
-    <div className="fixed w-[300px] h-[100vh] bg-white right-0 top-0 overflow-hidden overflow-y-auto z-10 wipe-in" onAnimationEnd={onAnimationEnd}>
-      <div className='absolute left-0 top-0 w-full pt-[40px] px-[30px] pb-[120px]'>
-        <div className="exit p-1 rounded-full hover:bg-[#e5e5e5] absolute top-[12px] right-[30px] cursor-pointer" onClick={props.onExit}>
+  return (menuShow &&
+    <div className={`
+    fixed w-[300px] h-[100vh] bg-white right-0 top-0 overflow-hidden overflow-y-auto z-[99]
+    ${props.show ? 'menu-appear' : 'menu-disappear'}
+    `} onAnimationEnd={onAnimationEnd}>
+      <div className={`
+      absolute top-0 w-full pt-[40px] px-[30px] pb-[120px] transition-all ease-linear 
+      ${navBarClick == '' ? 'left-0' : 'left-[-300px]'}
+      `}>
+        <div className="exit p-1 rounded-full hover:bg-[#e5e5e5] absolute top-[12px] right-[30px] cursor-pointer"
+          onClick={props.onExit}>
           <GrAdd className='rotate-45 text-[24px]'></GrAdd>
         </div>
         <div className="">
-          <RenderSubNav></RenderSubNav>
+          {arrayHaveSubNav.map((navBarName, index) => (
+            <div key={index} className="">
+              <li key={index} id={`sub-item-${index}`}
+                className='
+          group flex justify-between items-center py-[10px] cursor-pointer'
+                onClick={() => {
+                  setNavBarClick(navBarName)
+                }}>
+                <p className='
+                  text-[#111] text-[24px]
+                  '>{navBarName}
+                </p>
+                <FiChevronRight className='text-[22px]'></FiChevronRight>
+              </li>
+              <SubNavBarMenu
+                prev='All'
+                name={navBarName}
+                show={navBarClick === navBarName}
+                arr={getArrTitleByName(data, navBarName)}
+                handleNameClick={handleNavBarClick}
+              ></SubNavBarMenu>
+            </div>
+          ))}
+          {arrayNotSubNav.map((navBarName, index) => (
+            <li key={index} id={`sub-item-${index}`} className='group flex items-center py-[10px] cursor-pointer'>
+              <p className='
+                  text-[#111] text-[24px]
+                  '>{navBarName}
+              </p>
+            </li>
+          ))}
         </div>
         <div className="mt-10">
           <div className="">

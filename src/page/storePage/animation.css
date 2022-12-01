@@ -1,9 +1,9 @@
 .menu-appear{
-    animation: Appeara .15s linear;
+    animation: Appeara .1s linear;
 }
 .menu-disappear{
     right: -300px;
-    animation: Disappear .15s linear;
+    animation: Disappear .1s linear;
 }
 
 @keyframes Appeara {

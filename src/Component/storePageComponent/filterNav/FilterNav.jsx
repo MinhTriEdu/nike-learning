@@ -9,8 +9,8 @@ export default function FilterNav() {
 
   return (
     <div className='
-    w-[300px] h-[1000px] pl-12 pr-2 overflow-y-scroll pb-[100px] sticky top-[50px] bg-white
-    '>
+      w-[300px] h-[1000px] pl-12 pr-2 overflow-y-scroll pb-[100px] sticky top-[50px] bg-white
+      '>
       <div className="text-[16px] pb-5">
         {category.map((name, index) => (
           <p key={index} className='py-1'>{name}</p>
