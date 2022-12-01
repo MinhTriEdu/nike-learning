@@ -6,9 +6,10 @@ export default function HeaderFirst() {
     return (
         <div className='
         md:block
+        lg:px-9
         px-4 hidden w-full bg-[#f5f5f5]
         '>
-            <div className="max-w-[1400px] mx-auto py-1 flex justify-between">
+            <div className="py-1 flex justify-between">
                 <img className='w-5 cursor-pointer hover:opacity-60' src={jordanLogo} alt="" />
                 <div className="font-[Helvetica]">
                     <a href="" className="text-[12px] mr-[10px] hover:opacity-60">Find a Store</a>

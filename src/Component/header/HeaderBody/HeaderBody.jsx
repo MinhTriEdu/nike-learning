@@ -1,16 +1,24 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import nikeLogo from '../img/Logo_NIKE.png'
 import ChildMenu from './ChildMenu';
-import data from './dataSubMenu.jsx'
+import data from './dataSubMenu.js'
 import './animation.css'
 import { BiMenu } from "react-icons/bi";
 import { useMediaQuery } from 'react-responsive'
+import MenuNavBar from '../MenuNavBar/MenuNavBar';
 
 
 
 export default function HeaderBody() {
+
     const [show, setShow] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
+    const [searchClick, setSearchClick] = useState(false)
+    const [menuClick, setMenuClick] = useState(false);
+    const handleMenuClick = () => {
+        setMenuClick(!menuClick);
+    }
+
     const controlNavbar = () => {
         if (typeof window !== 'undefined') {
             if (window.scrollY > 32 && window.scrollY > lastScrollY) { // if scroll down hide the navbar
@@ -23,7 +31,6 @@ export default function HeaderBody() {
             setLastScrollY(window.scrollY);
         }
     };
-    console.log(window.scrollY);
     useEffect(() => {
         if (typeof window !== 'undefined') {
             window.addEventListener('scroll', controlNavbar);
@@ -35,7 +42,6 @@ export default function HeaderBody() {
         }
     }, [lastScrollY]);
 
-    const [searchClick, setSearchClick] = useState(false)
 
 
 
@@ -64,7 +70,7 @@ export default function HeaderBody() {
                 break;
         }
         return (
-            <div className="absolute bg-white p-[40px] pt-[20px] w-[100vw] top-full left-0 z-10">
+            <div className="absolute bg-white p-[40px] pt-[20px] w-[100vw] top-full left-0 z-[99]">
                 <div className="flex justify-center mx-[40px]">
                     {category.map((item, index) => {
                         return (
@@ -115,17 +121,20 @@ export default function HeaderBody() {
                 ${searchClick ? '' : 'hidden'}
                 fixed inset-0 bg-black opacity-50 z-10
                 `}
-            >
+            >s
             </div>
             <div id='header-body' className={`
                 w-full bg-white transition-all z-10
-                ${show ? (window.pageYOffset > 32 ? 'fixed top-[0px]' : 'top-[0px]') : 'fixed top-[-100px]'}
-                ${searchClick ? (window.pageYOffset > 32 ? 'fixed' : 'fixed header-open-animation') : (window.pageYOffset < 4? 'header-close-animation':'')}
+                ${show ? (window.pageYOffset > 32 ? 'fixed top-[0px]' : 'top-[0px]') : 'fixed top-[-60px]'}
+                ${searchClick ? (window.pageYOffset > 32 ? 'fixed' : 'fixed header-open-animation') : (window.pageYOffset > 32 ? '' : 'header-close-animation')}
                 `}>
-                <div className="w-full h-[60px] relative">
-                    <div className="max-w-[1400px] mx-auto flex justify-between items-center h-full">
+                <div className="
+                lg:px-9
+                w-full h-[60px] relative px-4
+                ">
+                    <div className="mx-auto flex justify-between items-center h-full">
                         <img className={`
-                            h-5 pl-4
+                            h-5
                             lg:block
                             ${searchClick ? 'hidden' : ''}
                         `} src={nikeLogo} alt="" />
@@ -133,7 +142,7 @@ export default function HeaderBody() {
                             navbar-header
                             xl:pr-0
                             lg:flex ${searchClick ? 'lg:hidden' : ''}
-                            hidden pr-[60px] items-center justify-center absolute top-0 left-0 w-[100vw]
+                            hidden pr-[60px] items-center justify-center absolute top-0 left-0 w-full
                             `}
                         >
                             <RenderNavBar></RenderNavBar>
@@ -147,11 +156,11 @@ export default function HeaderBody() {
                                ${searchClick ? 'lg:max-w-[700px] lg:w-[700px] w-[80%]' : 'lg:w-[160px] xl:w-[180px] w-[40px]'}
                             `}>
                                 <div className={`relative w-full
-                                `} onClick={()=>setSearchClick(true)}>
+                                `} onClick={() => setSearchClick(true)}>
                                     <div className={`
                                     lg:bg-transparent
                                     absolute left-0 h-[40px] w-[40px] rounded-full flex justify-center items-center hover:bg-[#e5e5e5]
-                                    ${searchClick ?'bg-transparent':'bg-white'}
+                                    ${searchClick ? 'bg-transparent' : 'bg-white'}
                                     `}>
                                         <svg
                                             aria-hidden="true"
@@ -170,13 +179,13 @@ export default function HeaderBody() {
                                     <input type="text" className={`
                                     lg:visible lg:px-[48px]
                                     py-[8px] rounded-full bg-[#f5f5f5] outline-none text-[16px] hover:bg-[#e5e5e5] 
-                                    ${searchClick ?'visible px-[48px] w-full':'lg:w-full w-[40px] px-0'}
+                                    ${searchClick ? 'visible px-[48px] w-full' : 'lg:w-full w-[40px] px-0'}
                                     `} placeholder='Search' />
                                 </div>
 
                             </div>
                         </div>
-                        <div className="flex justify-center items-center relative pr-4">
+                        <div className="flex justify-center items-center relative">
                             <div className={`
                             heart-header
                             lg:block ${searchClick ? 'lg:invisible' : ''}
@@ -200,7 +209,7 @@ export default function HeaderBody() {
                             cart-header
                             lg:mx-0 lg:block 
                             ${searchClick ? 'invisible' : ''}
-                            mx-4 hover:bg-[#e5e5e5] rounded-full p-2 cursor-pointer
+                            mx-4 hover:bg-[#e5e5e5] rounded-full cursor-pointer p-2
                             `}>
                                 <svg
                                     aria-hidden="true"
@@ -217,20 +226,23 @@ export default function HeaderBody() {
                                 </svg>
                             </div>
                             <div className={`
-                            lg:hidden
-                             menu-header hover:bg-[#e5e5e5] rounded-full p-2 cursor-pointer
-                             ${searchClick ? 'hidden' : ''}
-                            `}>
+                                lg:hidden
+                                menu-header hover:bg-[#e5e5e5] rounded-full p-2 cursor-pointer
+                                ${searchClick ? 'hidden' : ''}
+                                `} onClickCapture={handleMenuClick}>
                                 <BiMenu className={`
                                 text-[26px]
-                                `}></BiMenu>
+                                `}>
+                                </BiMenu>
+                            </div>
+                            <div className="lg:hidden">
+                                <MenuNavBar show={menuClick} onExit={handleMenuClick}></MenuNavBar>
                             </div>
                             <div className={`
-                            cancel-search 
-                            absolute top-1/2 -translate-y-1/2 right-4 hover:opacity-70 cursor-pointer
-                            ${searchClick ? 'pop-up' : 'hidden'}
+                                cancel-search 
+                                absolute top-1/2 -translate-y-1/2 right-4 hover:opacity-70 cursor-pointer
+                                ${searchClick ? 'pop-up' : 'hidden'}
                                 `}
-
                                 onClick={() => setSearchClick(false)}
                             >
                                 <p className='text-[16px] text-[#111]'>Cancel</p>

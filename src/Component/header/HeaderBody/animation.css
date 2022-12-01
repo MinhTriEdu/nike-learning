@@ -4,7 +4,7 @@
     }
 
     .header-close-animation {
-        animation: headerTopClose 0.5s linear;
+        animation: headerTopClose 0.3s linear;
     }
     .pop-up{
         padding: 0;

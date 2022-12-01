@@ -51,13 +51,14 @@ export default function FooterBody() {
     }
     return (
         <div className="
+        lg:px-9
         w-full bg-[#111111] pt-[40px] px-4
         ">
             <div className="
             xl:grid-cols-6
             md:grid-cols-5
             sm:grid-cols-4 sm:grid
-            max-w-[1400px] mx-auto text-[#7e7e7e]
+            max-w-[1440px] mx-auto text-[#7e7e7e]
             
             ">
                 <div className="

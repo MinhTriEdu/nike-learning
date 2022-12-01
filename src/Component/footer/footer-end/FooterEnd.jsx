@@ -5,10 +5,11 @@ export default function FooterEnd() {
     return (
         <div className="
         sm:pt-2
+        lg:px-9
         w-full bg-[#111111] py-2 px-4 pt-10
         ">
             <div className="
-            max-w-[1400px] mx-auto flex justify-between
+            max-w-[1440px] mx-auto flex justify-between
             sm:flex-row
             flex-col
             ">

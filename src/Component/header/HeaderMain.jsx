@@ -13,9 +13,6 @@ export default function HeaderMain() {
            <HeaderFirst></HeaderFirst>
             <HeaderBody></HeaderBody>
             <HeaderAds></HeaderAds>
-            <div className='bg-white w-full h-[100vh]'>
-                <MenuNavBar></MenuNavBar>
-            </div>
         </Fragment>
     )
 }
