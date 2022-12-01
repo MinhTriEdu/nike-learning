@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import { Link } from 'react-router-dom'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -11,14 +12,15 @@ import "./style.css";
 
 // import required modules
 import { Pagination, Navigation } from "swiper";
+import Details from "../../detailPage/Details";
 
 export default function App() {
   const data = [
-    { img: "/img/imgHomePage/1.png", conten: "123", price: "100" },
-    { img: "/img/imgHomePage/1.png", conten: "123", price: "100" },
-    { img: "/img/imgHomePage/1.png", conten: "123", price: "100" },
-    { img: "/img/imgHomePage/1.png", conten: "123", price: "100" },
-    { img: "/img/imgHomePage/1.png", conten: "123", price: "100" },
+    { id:1,img: "/img/imgHomePage/1.png", content: "123", price: "100" },
+    { id:2,img: "/img/imgHomePage/1.png", content: "123", price: "100" },
+    { id:3,img: "/img/imgHomePage/1.png", content: "123", price: "100" },
+    { id:4,img: "/img/imgHomePage/1.png", content: "123", price: "100" },
+    { id:5,img: "/img/imgHomePage/1.png", content: "123", price: "100" },
   ];
   return (
     <>
@@ -43,13 +45,15 @@ export default function App() {
               </div>
               <div className="card_text" style={{ width: "406.66px" }}>
                 <div className="card_text1" style={{ textAlign: "left" }}>
-                  {item.conten}
+                  {item.content}
                 </div>
                 <div className="card_text2">{item.price}</div>
               </div>
+              <Link to={`/details/${item.id}`} data1={data}>Details</Link>
             </SwiperSlide>
           );
         })}
+       
       </Swiper>
     </>
   );

@@ -1,17 +1,25 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./page/homePage/HomePage";
-import Footer from "./Component/footer/Footer";
-import Header from "./Component/header/Header";
 import React from "react";
+import HeaderMain from "./Component/header/HeaderMain";
+import FooterMain from "./Component/footer/FooterMain";
+import LoginPage from "./page/loginPage/LoginPage";
+import RegisterPage from "./page/registerPage/RegisterPage"
+import Details from "./page/detailPage/Details";
 function App() {
   return (
     <BrowserRouter>
-      <Header />
+      {/* <HeaderMain /> */}
       <Routes>
-        <Route path={"/"} element={<HomePage />} />
+        <Route path={"/home"} element={<HomePage />} />
+        <Route path={"/details/:id}"} element={<Details />} />
       </Routes>
-      <Footer />
+      {/* <FooterMain /> */}
+      {/* <Routes>
+        <Route path={"/login"} element={<LoginPage />} />
+        <Route path={"/register"} element={<RegisterPage/>} />
+      </Routes> */}
     </BrowserRouter>
   );
 }
