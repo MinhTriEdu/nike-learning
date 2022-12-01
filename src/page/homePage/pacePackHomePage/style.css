@@ -35,3 +35,6 @@
   display: flex;
   justify-content: space-between;
 }
+.swiper-pagination{
+ transform: translateY(10px);
+}
