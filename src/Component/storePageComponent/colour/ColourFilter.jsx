@@ -59,7 +59,7 @@ export default function () {
             after:absolute after:w-full after:h-[1px] after:bg-[#e5e5e5] after:top-0
             ">
                 <h1 className="text-[16px]">Colour</h1>
-                <div className="" onClick={()=>setShow(!show)}>
+                <div className="lg:block hidden" onClick={()=>setShow(!show)}>
                 {show?<FiChevronUp className='text-[24px]'></FiChevronUp>:<FiChevronDown className='text-[24px]'></FiChevronDown>}
                 
                 </div>
@@ -75,7 +75,10 @@ export default function () {
 
                 `}>
                     {colour.map((color, index) => (
-                        <div key={index} className="flex flex-col justify-center items-center text-center">
+                        <div key={index} className="
+                            lg:my-0
+                            flex flex-col my-2 justify-center items-center text-center
+                            ">
                             <div className='h-[28px] w-[28px] rounded-full border' style={{ background: `${color.id}` }}></div>
                             <p className='text-[12px]'>{color.name}</p>
                         </div>

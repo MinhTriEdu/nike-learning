@@ -33,7 +33,8 @@ export default function FilterHeader(props) {
 
     return (
         <div className={`
-        px-11 bg-white sticky transition-all z-10
+        lg:px-11
+        px-4 bg-white sticky transition-all z-10
         ${show ? 'top-[60px]' : 'top-0'}
         `}>
             <div className='flex justify-between items-center py-2 text-[#111] text-[16px]'>
@@ -43,7 +44,10 @@ export default function FilterHeader(props) {
                     ${window.pageYOffset > 10 ? 'text-[16px]' : 'text-[24px]'}
                     `}>Men's Clothing</h1>
                 </div>
-                <div className="flex">
+                <div className="
+                    lg:flex
+                    hidden
+                    ">
                     <div className="
                     flex mr-8 items-center cursor-pointer
                     "onClick={() => dispatch({ type: 'SHOW_FILTER_NAV', payload: true })}>

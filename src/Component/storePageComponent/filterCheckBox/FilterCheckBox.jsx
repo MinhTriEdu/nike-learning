@@ -11,7 +11,7 @@ export default function FilterCheckBox(props) {
             after:absolute after:w-full after:h-[1px] after:bg-[#e5e5e5] after:top-0
             ">
                 <h1 className="text-[16px]">{props.name}</h1>
-                <div className="" onClick={() => setShow(!show)}>
+                <div className="lg:block hidden" onClick={() => setShow(!show)}>
                     {show ? <FiChevronUp className='text-[24px]'></FiChevronUp> : <FiChevronDown className='text-[24px]'></FiChevronDown>}
 
                 </div>

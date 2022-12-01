@@ -116,13 +116,6 @@ export default function HeaderBody() {
     }
     return (
         <Fragment>
-            <div className={`
-                overplay
-                ${searchClick ? '' : 'hidden'}
-                fixed inset-0 bg-black opacity-50 z-10
-                `}
-            >s
-            </div>
             <div id='header-body' className={`
                 w-full bg-white transition-all z-10
                 ${show ? (window.pageYOffset > 32 ? 'fixed top-[0px]' : 'top-[0px]') : 'fixed top-[-60px]'}

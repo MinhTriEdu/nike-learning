@@ -25,7 +25,7 @@ export default function StoreBody() {
     if (data != null)
       return (
         data.map((item, index) => (
-          <Item key={index} item={item}></Item>
+          <Item key={index} item={item}><dix></dix></Item>
         ))
       )
     else{
@@ -40,12 +40,15 @@ export default function StoreBody() {
   }
 
   return (
-    <div className='w-full bg-white px-9 pb-20'>
+    <div className='
+    lg:px-9
+    px-4 w-full bg-white  pb-20
+    '>
       <div className="
-        lg:grid-cols-3
-        grid grid-cols-2 gap-4
+        lg:grid-cols-3 lg:mt-0
+        grid grid-cols-2 gap-4 mt-10
         ">
-        <ItemRender></ItemRender>
+        <ItemRender/>
       </div>
     </div>
   )
