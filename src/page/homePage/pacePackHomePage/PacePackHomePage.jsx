@@ -49,7 +49,8 @@ export default function App() {
                 </div>
                 <div className="card_text2">{item.price}</div>
               </div>
-              <Link to={`/details/${item.id}`} data1={data}>Details</Link>
+              <Link to={`/details/${item.id}`}>Details</Link>
+              <Details data={data}/>
             </SwiperSlide>
           );
         })}
