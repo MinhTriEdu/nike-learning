@@ -3,6 +3,9 @@ import "./index.scss";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useEffect } from "react";
+import axios from "axios";
+import { useState } from "react";
 const schema = yup.object().shape({
   firstname: yup.string().required("không được để trống "),
   lastname: yup.string().required("không được để trống "),
@@ -12,11 +15,30 @@ const schema = yup.object().shape({
   passwordagain: yup.string().oneOf([yup.ref("password"), null]),
 });
 export default function RegisterPage() {
-  const { register, handleSubmit,formState: { errors } } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     resolver: yupResolver(schema),
   });
   const submitForm = (data) => {
     console.log(data);
+    setData(data);
+  };
+  const [data, setData] = useState();
+  // post thông tin lên api
+
+  const SingUp = async () => {
+    try {
+      const res = await axios.post(
+        "https://nike0403.herokuapp.com/users/create",
+        data
+      );
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div className="res_body">
@@ -64,8 +86,12 @@ export default function RegisterPage() {
               placeholder="passwordagain"
               {...register("passwordagain", { required: "Required" })}
             />{" "}
-            <h6>{errors.passwordagain && "Mật khẩu không trùng với mật khẩu mới"}</h6>
-            <button type="submit">Hoàn Thành</button>
+            <h6>
+              {errors.passwordagain && "Mật khẩu không trùng với mật khẩu mới"}
+            </h6>
+            <button type="submit" onClick={() => SingUp()}>
+              Hoàn Thành
+            </button>
           </form>
         </div>
       </div>
