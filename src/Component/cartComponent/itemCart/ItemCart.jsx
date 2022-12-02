@@ -4,7 +4,7 @@ export default function ItemCart(props) {
     return (
         <div className='
             flex py-6 relative
-            after:absolute after:h-1 after:w-full after:bg-[#e5e5e5]
+            after:absolute after:h-[1px] after:w-full after:bg-[#e5e5e5] after:top-full after:left-0
             '>
             <div className="pr-4 h-[150px] w-[150px] overflow-hidden">
                 <img className='w-[150px]' src="https://secure-images.nike.com/is/image/DotCom/DQ6048_100?align=0,1&cropN=0,0,0,0&resMode=sharp&bgc=f5f5f5&wid=150&fmt=jpg" alt="" />
@@ -15,6 +15,24 @@ export default function ItemCart(props) {
                         <h1>Nike Air Force 1 LV8</h1>
                         <p className='text-[#757575]'>Older Kids' Shoes</p>
                         <p className='text-[#757575]' >White/Midnight Navy/Pure Platinum/Metallic Silver</p>
+                        <div className="flex text-[#757575] text-[16px] mt-1">
+                            <div className="flex mr-4">
+                                <p>Size</p>
+                                <select className='px-4 text-[14px]' name="" id="">
+                                    <option value="">1</option>
+                                    <option value="">2</option>
+                                    <option value="">3</option>
+                                </select>
+                            </div>
+                            <div className="flex">
+                                <p className="">Quantity</p>
+                                <select className='px-4 text-[14px]' name="" id="">
+                                    <option value="">1</option>
+                                    <option value="">2</option>
+                                    <option value="">3</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                     <div className="flex mt-5">
                         <div className="mr-4">

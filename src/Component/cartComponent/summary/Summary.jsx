@@ -31,7 +31,7 @@ export default function Summary(props) {
                 <p>21,391,000₫</p>
             </div>
             <div className="mt-8">
-                <BlackBtn name='Memmber Checkout' width='w-full' padding='px-2 py-4'></BlackBtn>
+                <BlackBtn name='Checkout' width='w-full' padding='px-2 py-4 '></BlackBtn>
             </div>
         </div>
     )

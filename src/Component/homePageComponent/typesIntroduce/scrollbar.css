@@ -1,0 +1,21 @@
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+  .custom-scrollbar {
+      background-color: rgba(0,0,0,0);
+      -webkit-background-clip: text;
+      transition: background-color .8s;
+  }
+  .custom-scrollbar:hover {
+     background-color: rgba(0,0,0,0.18);  
+  }
+  .custom-scrollbar::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+      display: none;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+      border-radius: 8px;
+      background-color: inherit;
+  }
+}

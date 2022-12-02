@@ -4,7 +4,6 @@ import ChildMenu from './ChildMenu';
 import data from './dataSubMenu.js'
 import './animation.css'
 import { BiMenu } from "react-icons/bi";
-import { useMediaQuery } from 'react-responsive'
 import MenuNavBar from '../MenuNavBar/MenuNavBar';
 
 
@@ -70,8 +69,8 @@ export default function HeaderBody() {
                 break;
         }
         return (
-            <div className="absolute bg-white p-[40px] pt-[20px] w-[100vw] top-full left-0 z-[99]">
-                <div className="flex justify-center mx-[40px]">
+            <div className="absolute bg-white p-[40px] pt-[20px] w-[100vw] top-full left-0 z-[99] overflow-hidden">
+                <div className="flex justify-center mx-auto max-w-7xl drop-down">
                     {category.map((item, index) => {
                         return (
                             <ChildMenu key={index} arr={item.arr}></ChildMenu>
@@ -84,10 +83,12 @@ export default function HeaderBody() {
     function RenderNavBar() {
         const arrayHaveSubNav = ['Men', 'Women', 'Kids', 'Customise', 'Sale', 'Gifts 🎁'];
         const arrayNotSubNav = ['SNKRS'];
-
+        const [showSubMenu,setShowSubMenu] = useState('')
         return (<Fragment>
             {arrayHaveSubNav.map((navBarName, index) => (
-                <li key={index} id={`sub-item-${index}`} className='group flex items-center'>
+                <li key={index} 
+                    id={`sub-item-${index}`} 
+                    className='group flex items-center' onMouseOver={()=>setShowSubMenu(navBarName)} onMouseLeave={()=>setShowSubMenu('')}>
                     <p className='
                         item
                         px-[12px] relative py-[18px] cursor-pointer
@@ -95,8 +96,8 @@ export default function HeaderBody() {
                         group-hover:after:block
                         '>{navBarName}
                     </p>
-                    <div id={`sub-menu-${index}`} className=' group-hover:block hidden'>
-                        <RenderSubMenu name={navBarName}></RenderSubMenu>
+                    <div id={`sub-menu-${index}`} className=''>
+                        {showSubMenu==navBarName && <RenderSubMenu name={navBarName}></RenderSubMenu>}
                     </div>
                 </li>
             ))}

@@ -10,7 +10,7 @@ export default function FilterNav() {
 
   return (
     <div className='
-      w-[300px] h-[1000px] pl-12 pr-2 overflow-y-scroll pb-[100px] sticky top-[50px] bg-white
+      w-[300px] h-[100vh] pl-12 pr-2 overflow-y-scroll pb-[100px] sticky top-[50px] bg-white filterNav-scrollbar
       '>
       <div className="text-[16px] pb-5">
         {category.map((name, index) => (
@@ -25,7 +25,6 @@ export default function FilterNav() {
       <FilterCheckBox name='Air Max' arr={['Air Max 1', 'Air Max 2', 'Air Max 3', 'Air Max 4', 'Air Max 5', 'Air Max 6']}></FilterCheckBox>
       <FilterCheckBox name='Air Max' arr={['Air Max 1', 'Air Max 2', 'Air Max 3', 'Air Max 4', 'Air Max 5', 'Air Max 6']}></FilterCheckBox>
       <FilterCheckBox name='Air Max' arr={['Air Max 1', 'Air Max 2', 'Air Max 3', 'Air Max 4', 'Air Max 5', 'Air Max 6']}></FilterCheckBox>
-
     </div>
   )
 }
