@@ -1,6 +1,6 @@
 import React from 'react'
+import CartBody from '../../Component/cartComponent/cartBody/CartBody'
 import DeliveryAds from '../../Component/cartComponent/deliveryAds/DeliveryAds'
-import ItemCart from '../../Component/cartComponent/itemCart/ItemCart'
 import Summary from '../../Component/cartComponent/summary/Summary'
 
 export default function CartPage() {
@@ -11,11 +11,11 @@ export default function CartPage() {
           <DeliveryAds></DeliveryAds>
         </div>
         <div className="">
-          <ItemCart></ItemCart>
+          <CartBody></CartBody>
         </div>
       </div>
       <div className="pl-3">
-      <Summary></Summary>
+      <Summary width='w-[360px]'></Summary>
       </div>
     </div>
   )
