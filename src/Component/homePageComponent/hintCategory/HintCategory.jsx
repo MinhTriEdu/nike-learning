@@ -25,7 +25,10 @@ export default function HintCategory() {
     ]
 
     return (
-        <div className='flex justify-between max-w-4xl mx-auto py-20' onMouseOver={()=>setShowMore(true)} onMouseLeave={()=>setShowMore(false)}>
+        <div className='
+            md:grid grid-cols-4 gap-5
+            max-w-4xl mx-auto py-10
+            ' onMouseOver={()=>setShowMore(true)} onMouseLeave={()=>setShowMore(false)}>
             {category.map((item, index) => (
                 <div key={index} className="">
                     <HintItem arr={item.arr} name={item.name} show={showMore}></HintItem>

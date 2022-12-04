@@ -1,30 +1,26 @@
 import React from 'react'
 import Feature from '../../Component/homePageComponent/featureHomePage/Feature'
-import PacePackHomePage from '../../Component/homePageComponent/pacePackHomePage/PacePackHomePage'
-import TrendingHomePage from '../../Component/homePageComponent/trendingHomePage/TrendingHomePage'
-import VideoHomePage from '../../Component/homePageComponent/videoHomePage/VideoHomePage'
 import AdsHomePage from '../../Component/homePageComponent/adsHomePage/AdsHomePage'
 import TypesIntroduce from '../../Component/homePageComponent/typesIntroduce/TypesIntroduce'
 import GearUp from '../../Component/homePageComponent/gearUp/GearUp'
 import MoreNike from '../../Component/homePageComponent/moreNike/MoreNike'
 import HintCategory from '../../Component/homePageComponent/hintCategory/HintCategory'
+import VideoHomePage from '../../Component/homePageComponent/videoHomepage/VideoHomepage'
 
 export default function HomePage() {
   return (
     <div className='
       lg:px-9
-      w-full px-4 max-w-[1500px] mx-auto
+      w-full px-4 max-w-[1800px] mx-auto
       '>
-      <AdsHomePage></AdsHomePage>
-      <TypesIntroduce></TypesIntroduce>
-      <GearUp></GearUp>
-      <Feature></Feature>
-      <MoreNike></MoreNike>
-      <HintCategory></HintCategory>
-      {/* <VideoHomePage/>
+      <AdsHomePage/>
+      <VideoHomePage/>
+      <TypesIntroduce/>
+      <GearUp/>
       <Feature/>
-      <TrendingHomePage/>
-      <PacePackHomePage/> */}
+      <MoreNike/>
+      <HintCategory/>
+
     </div>
 )
 }
