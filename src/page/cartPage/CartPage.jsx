@@ -7,24 +7,37 @@ import Summary from '../../Component/cartComponent/summary/Summary'
 
 export default function CartPage() {
   return (
-    <div className="max-w-[1100px] mx-auto pt-10">
-      <div className='flex  '>
-        <div className="flex-1 pr-3">
-          <div className="">
-            <DeliveryAds></DeliveryAds>
+    <div className="
+      lg:px-9
+      px-4
+      ">
+      <div className="max-w-[1100px] mx-auto pt-10">
+        <div className='
+          lg:flex
+          block
+          '>
+          <div className="
+            lg:w-[66.6%] lg:pr-3
+            w-full">
+            <div className="">
+              <DeliveryAds></DeliveryAds>
+            </div>
+            <div className="">
+              <CartBody></CartBody>
+            </div>
           </div>
-          <div className="">
-            <CartBody></CartBody>
+          <div className="
+            lg:w-[33.3%] lg:pl-3 lg:mt-0
+            w-full mt-5">
+            <Summary></Summary>
           </div>
         </div>
-        <div className="pl-3">
-          <Summary width='w-[360px]'></Summary>
+        <div className="py-5">
+          <Favorites></Favorites>
         </div>
+
       </div>
-      <div className="py-5">
-        <Favorites></Favorites>
-      </div>
-      <div className="py-5">
+      <div className="">
         <MightLike></MightLike>
       </div>
     </div>

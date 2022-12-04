@@ -5,7 +5,10 @@ export default function Favorites() {
   return (
     <div>
         <h1 className="text-[22px] text-[#111]">Favorites</h1>
-        <div className="grid grid-cols-2 gap-5">
+        <div className="
+          lg:grid-cols-2
+          grid grid-cols-1 gap-5
+          ">
             <FavoritesItem></FavoritesItem>
             <FavoritesItem></FavoritesItem>
             <FavoritesItem></FavoritesItem>

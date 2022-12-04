@@ -1,21 +1,21 @@
-@media screen and (-webkit-min-device-pixel-ratio:0) { 
-  .custom-scrollbar {
-      background-color: rgba(0,0,0,0);
-      -webkit-background-clip: text;
-      transition: background-color .8s;
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  .ads-scrollbar {
+    scrollbar-width: none;
+    scrollbar-color: #757575 #ffffff;
   }
-  .custom-scrollbar:hover {
-     background-color: rgba(0,0,0,0.18);  
+
+  /* Chrome, Edge, and Safari */
+  .ads-scrollbar::-webkit-scrollbar {
+    width: 10px;
   }
-  .custom-scrollbar::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
+
+  .ads-scrollbar::-webkit-scrollbar-track {
+    background: #ffffff;
   }
-  .custom-scrollbar::-webkit-scrollbar-track {
-      display: none;
+
+  .ads-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #a4a4a4;
+    border-radius: 20px;
+    border: 4px solid #ffffff;
   }
-  .custom-scrollbar::-webkit-scrollbar-thumb {
-      border-radius: 8px;
-      background-color: inherit;
-  }
-}
