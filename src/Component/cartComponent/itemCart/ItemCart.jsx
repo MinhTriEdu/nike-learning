@@ -6,7 +6,7 @@ export default function ItemCart(props) {
             flex py-6 relative
             after:absolute after:h-[1px] after:w-full after:bg-[#e5e5e5] after:top-full after:left-0
             '>
-            <div className="pr-4 h-[150px] w-[150px] overflow-hidden">
+            <div className="mr-4 h-[150px] w-[150px] overflow-hidden">
                 <img className='w-[150px]' src="https://secure-images.nike.com/is/image/DotCom/DQ6048_100?align=0,1&cropN=0,0,0,0&resMode=sharp&bgc=f5f5f5&wid=150&fmt=jpg" alt="" />
             </div>
             <div className="flex-1 flex justify-between items-start text-[#111]">

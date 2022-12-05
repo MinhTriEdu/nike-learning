@@ -1,0 +1,21 @@
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  .ads-scrollbar {
+    scrollbar-width: none;
+    scrollbar-color: #757575 #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  .ads-scrollbar::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .ads-scrollbar::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  .ads-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #a4a4a4;
+    border-radius: 20px;
+    border: 4px solid #ffffff;
+  }

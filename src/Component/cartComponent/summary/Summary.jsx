@@ -4,8 +4,7 @@ import BlackBtn from '../../Button/BlackBtn';
 export default function Summary(props) {
     return (
         <div className={`
-            text-[#111]
-            ${props.width?`${props.width}`:'w-[300px]'}
+            text-[#111] w-full
             `}>
             <h1 className='text-[22px] mb-4'>Summary</h1>
             <div className="flex justify-between items-center">

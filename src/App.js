@@ -13,7 +13,7 @@ function App() {
   return (
     <BrowserRouter>
       <HeaderMain/>
-      <HomePage/>
+      <CartPage/>
       <FooterMain/>
     </BrowserRouter>
   );
