@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 import React from "react";
 import HeaderMain from "./Component/header/HeaderMain";
 import FooterMain from "./Component/footer/FooterMain";
@@ -13,7 +13,13 @@ function App() {
   return (
     <BrowserRouter>
       <HeaderMain/>
-      <CartPage/>
+        <Routes>
+          <Route path="/" element={<HomePage></HomePage>}/>
+          <Route path="/store/*" element={<StorePage></StorePage>}/>
+          <Route path="/store/:search/:sort_info" element={<StorePage></StorePage>}/>
+          <Route path="/cart" element={<CartPage></CartPage>}/>
+          <Route path='*' element={<HomePage/>} />
+        </Routes>
       <FooterMain/>
     </BrowserRouter>
   );

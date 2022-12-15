@@ -1,9 +1,24 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
+import { useNavigate, useParams } from 'react-router-dom';
 export default function FilterCheckBox(props) {
+    const navigate = useNavigate()
     const [show, setShow] = useState(true)
     const [more, setMore] = useState(false)
+    const [checkedState, setCheckedState] = useState(
+        new Array(props.arr.length).fill(false)
+    );
+    const { sort_info } = useParams
+    const { search } = useParams
+    let url = ''
 
+    const handleOnChange = (position) => {
+        const checkTostring = checkedState.filter((element) =>
+        element == true).reduce((accumulator, currentValue, currentIndex) => accumulator + String(currentIndex), '')
+        if(checkTostring.indexOf(position) >= 0 ) url = props.name.toLowerCase() + '=' + checkTostring.slice(0, checkTostring.indexOf(position)) + checkTostring.slice(checkTostring.indexOf(position)+1);
+        else url = props.name.toLowerCase() + '=' + checkTostring + String(position)
+        // navigate(`store/search/${url}`)
+    }
     return (
         <div className='py-2'>
             <div className="
@@ -29,7 +44,12 @@ export default function FilterCheckBox(props) {
                         if (index < 4) {
                             return (
                                 <div key={index} className="flex items-center pt-1">
-                                    <input className='mr-3 w-[20px] h-[20px] accent-black' type="checkbox" />
+                                    <input
+                                        className='mr-3 w-[20px] h-[20px] accent-black'
+                                        type="checkbox"
+                                        checked={checkedState[index]}
+                                        onChange={() => handleOnChange(index)}
+                                    />
                                     <p className='text-[16px]'>{element}</p>
                                 </div>
                             )
@@ -58,7 +78,7 @@ export default function FilterCheckBox(props) {
                                 })}
                             </div>
                         </div>
-                        <div className="mt-2" onClick={() => setMore(!more)}>{more?'- Less':'+ More'}</div>
+                        <div className="mt-2" onClick={() => setMore(!more)}>{more ? '- Less' : '+ More'}</div>
                     </div>
                     : undefined}
             </div>

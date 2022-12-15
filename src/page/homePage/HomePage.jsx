@@ -5,7 +5,7 @@ import TypesIntroduce from '../../Component/homePageComponent/typesIntroduce/Typ
 import GearUp from '../../Component/homePageComponent/gearUp/GearUp'
 import MoreNike from '../../Component/homePageComponent/moreNike/MoreNike'
 import HintCategory from '../../Component/homePageComponent/hintCategory/HintCategory'
-import VideoHomePage from '../../Component/homePageComponent/videoHomepage/VideoHomepage'
+import VideoHomePage from '../../Component/homePageComponent/videoHomePage/VideoHomePage'
 
 export default function HomePage() {
   return (
@@ -20,7 +20,6 @@ export default function HomePage() {
       <Feature/>
       <MoreNike/>
       <HintCategory/>
-
     </div>
 )
 }

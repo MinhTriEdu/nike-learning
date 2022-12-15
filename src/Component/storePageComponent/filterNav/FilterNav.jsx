@@ -17,14 +17,13 @@ export default function FilterNav() {
           <p key={index} className='py-1'>{name}</p>
           ))}
       </div>
-      <ColourFilter></ColourFilter>
+      <FilterCheckBox name='Gender' arr={['Men', 'Women', 'Kids']}></FilterCheckBox>
+      <FilterCheckBox name='Shop By Price' arr={['Under 1,000,000đ', '1,001,000đ - 2,000,000đ', '2,001,000đ - 4,000,000đ', 'Above 4,001,000đ']}></FilterCheckBox>
       <Size></Size>
-      <FilterRadio name='Gender' arr={['Men', 'Women', 'Unisex','Men', 'Women', 'Unisex']}></FilterRadio>
-      <FilterCheckBox name='Gender' arr={['Men', 'Women', 'Unisex']}></FilterCheckBox>
-      <FilterCheckBox name='Air Max' arr={['Air Max 1', 'Air Max 2', 'Air Max 3', 'Air Max 4', 'Air Max 5', 'Air Max 6']}></FilterCheckBox>
-      <FilterCheckBox name='Air Max' arr={['Air Max 1', 'Air Max 2', 'Air Max 3', 'Air Max 4', 'Air Max 5', 'Air Max 6']}></FilterCheckBox>
-      <FilterCheckBox name='Air Max' arr={['Air Max 1', 'Air Max 2', 'Air Max 3', 'Air Max 4', 'Air Max 5', 'Air Max 6']}></FilterCheckBox>
-      <FilterCheckBox name='Air Max' arr={['Air Max 1', 'Air Max 2', 'Air Max 3', 'Air Max 4', 'Air Max 5', 'Air Max 6']}></FilterCheckBox>
+      <ColourFilter></ColourFilter>
+      <FilterCheckBox name='Brand' arr={['Nike Sportswear', 'Jordan', 'Nike By You', 'NikeLab', 'ACG']}></FilterCheckBox>
+      <FilterCheckBox name='Air Max' arr={['Air Max 1', 'Air Max 90', 'Air Max 95', 'Air Max 97', 'Air Max 270', 'Air Max Plus']}></FilterCheckBox>
+      <FilterCheckBox name='Show Height' arr={['Low Top', 'Mid Top', 'High Top']}></FilterCheckBox>
     </div>
   )
 }

@@ -5,6 +5,7 @@ import data from './dataSubMenu.js'
 import './animation.css'
 import { BiMenu } from "react-icons/bi";
 import MenuNavBar from '../MenuNavBar/MenuNavBar';
+import { Link } from 'react-router-dom';
 
 
 
@@ -81,23 +82,54 @@ export default function HeaderBody() {
         )
     }
     function RenderNavBar() {
-        const arrayHaveSubNav = ['Men', 'Women', 'Kids', 'Customise', 'Sale', 'Gifts 🎁'];
-        const arrayNotSubNav = ['SNKRS'];
-        const [showSubMenu,setShowSubMenu] = useState('')
+        const arrayHaveSubNav = [
+            {
+                name: 'Men',
+                keywork: 'men'
+            },
+            {
+                name: 'Women',
+                keywork: 'women'
+            },
+            {
+                name: 'Kids',
+                keywork: 'kids'
+            },
+            {
+                name: 'Customise',
+                keywork: 'customise'
+            }
+            ,
+            {
+                name: 'Sale',
+                keywork: 'sale'
+            },
+            {
+                name: 'Gifts 🎁',
+                keywork: 'gift'
+            }];
+        const arrayNotSubNav = [
+            {
+                name:'SNKRS',
+                keywork:'snkrs'  
+            }];
+        const [showSubMenu, setShowSubMenu] = useState('')
         return (<Fragment>
             {arrayHaveSubNav.map((navBarName, index) => (
-                <li key={index} 
-                    id={`sub-item-${index}`} 
-                    className='group flex items-center' onMouseOver={()=>setShowSubMenu(navBarName)} onMouseLeave={()=>setShowSubMenu('')}>
-                    <p className='
+                <li key={index}
+                    id={`sub-item-${index}`}
+                    className='group flex items-center' onMouseOver={() => setShowSubMenu(navBarName.name)} onMouseLeave={() => setShowSubMenu('')}>
+                    <Link to={`/store?${navBarName.keywork}`}>
+                        <p className='
                         item
                         px-[12px] relative py-[18px] cursor-pointer
                         after:absolute after:bg-black after:w-full after:h-[2px] after:left-0 after:bottom-0 after:hidden
                         group-hover:after:block
-                        '>{navBarName}
-                    </p>
+                        '>{navBarName.name}
+                        </p>
+                    </Link>
                     <div id={`sub-menu-${index}`} className=''>
-                        {showSubMenu==navBarName && <RenderSubMenu name={navBarName}></RenderSubMenu>}
+                        {showSubMenu == navBarName.name && <RenderSubMenu name={navBarName.name}></RenderSubMenu>}
                     </div>
                 </li>
             ))}
@@ -108,7 +140,7 @@ export default function HeaderBody() {
                         px-[12px] relative py-[18px] cursor-pointer
                         after:absolute after:bg-black after:w-full after:h-[2px] after:left-0 after:bottom-0 after:hidden
                         group-hover:after:block
-                        '>{navBarName}
+                        '>{navBarName.name}
                     </p>
                 </li>
             ))}
@@ -127,11 +159,15 @@ export default function HeaderBody() {
                 w-full h-[60px] relative px-4
                 ">
                     <div className="mx-auto flex justify-between items-center h-full">
-                        <img className={`
-                            h-5
-                            lg:block
-                            ${searchClick ? 'hidden' : ''}
-                        `} src={nikeLogo} alt="" />
+                        <Link to="/">
+                            <div className={`
+                                lg:block
+                                h-5 cursor-pointer relative z-10
+                                ${searchClick ? 'hidden' : ''}
+                                `}>
+                                <img className='h-7 py-1' src={nikeLogo} alt="" />
+                            </div>
+                        </Link>
                         <div className={`
                             navbar-header
                             xl:pr-0

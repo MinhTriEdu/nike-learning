@@ -6,15 +6,19 @@ import './animation.css'
 
 
 export default function StoreBody() {
-  const data = useSelector(state => state.reducerDataShoes.data)
+  const data = useSelector(state => state.reducerDataShoes.data_sort)
   const status = useSelector(state => state.reducerDataShoes.status)
+  const filter = useSelector(state => state.reducerDataShoes.filter)
   const dispatch = useDispatch()
+  
+
   useEffect(() => {
     const callApi = async () => {
       try {
         dispatch({ type: 'PENDING', })
-        const res = await axios.get('https://nike0403.herokuapp.com/product')
+        const res = await axios.get('https://nike-sever-vtcoder.glitch.me/product')
         dispatch({ type: 'DATA_SHOES', payload: res.data })
+        dispatch({ type: 'DATA_SORT', payload: res.data })
       } catch (er) {
         console.log(er);
       }
@@ -31,18 +35,17 @@ export default function StoreBody() {
     else{
       return(
         [...Array(9)].map((item,index)=>
-          <div key={index} className=" relative w-full pt-[100%] bg-[#f6f6f6] overflow-hidden">
+          <div key={index} className="relative w-full pt-[100%] bg-[#f6f6f6] overflow-hidden">
             <div className="absolute w-full h-5 bg-[#a5a5a5] blur-3xl loading-item"></div>
           </div>
         )
       )
     }
   }
-
   return (
     <div className='
-    lg:px-9
-    px-4 w-full bg-white  pb-20
+      lg:px-9
+      px-4 w-full bg-white  pb-20
     '>
       <div className="
         lg:grid-cols-3 lg:mt-0

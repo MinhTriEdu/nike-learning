@@ -11,7 +11,7 @@ export default function CategoryFilterMobile() {
         flex py-4 ml-[-8px] overflow-x-auto relative cursor-grab scrollbar
         '>
         {category.map((item,index)=>(
-            <p className='mx-4 p-2 whitespace-nowrap cursor-pointer'>{item}</p>
+            <p key={index} className='mx-4 p-2 whitespace-nowrap cursor-pointer'>{item}</p>
         ))}
     </div>
   )

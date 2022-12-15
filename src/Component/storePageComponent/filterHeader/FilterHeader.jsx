@@ -9,6 +9,8 @@ export default function FilterHeader(props) {
     const [showSort, setShowSort] = useState(false)
 
     const counter = useSelector(state => state.rootReducerStorePage.showFilterNav)
+    const data = useSelector(state => state.reducerDataShoes.data_sort)
+
     const dispatch = useDispatch()
 
     const controlNavbar = () => {
@@ -21,6 +23,7 @@ export default function FilterHeader(props) {
             setLastScrollY(window.scrollY);
         }
     };
+
     useEffect(() => {
         if (typeof window !== 'undefined') {
             window.addEventListener('scroll', controlNavbar);
@@ -30,27 +33,79 @@ export default function FilterHeader(props) {
         }
     }, [lastScrollY]);
 
+    const sortLowToHight = (data) => {
+        function compare(a, b) {
+            if (a.price < b.price) {
+                return -1;
+            }
+            if (a.price > b.price) {
+                return 1;
+            }
+            return 0;
+        }
+        const new_data = [...data].sort(compare);
+        dispatch({ type: 'DATA_SORT', payload: new_data })
 
+    }
+    const sortHighToLow = (data) => {
+        function compare(a, b) {
+            if (a.price > b.price) {
+                return -1;
+            }
+            if (a.price < b.price) {
+                return 1;
+            }
+            return 0;
+        }
+        const new_data = [...data].sort(compare);
+        dispatch({ type: 'DATA_SORT', payload: new_data })
+    }
+    const sortNewest = (data) => {
+        function compare(a, b) {
+            if (a._id > b._id) {
+                return -1;
+            }
+            if (a._id < b._id) {
+                return 1;
+            }
+            return 0;
+        }
+        const new_data = [...data].sort(compare);
+        dispatch({ type: 'DATA_SORT', payload: new_data })
+    }
+    const sortFeature = (data) => {
+        function compare(a, b) {
+            if (a._id < b._id) {
+                return -1;
+            }
+            if (a._id > b._id) {
+                return 1;
+            }
+            return 0;
+        }
+        const new_data = [...data].sort(compare);
+        dispatch({ type: 'DATA_SORT', payload: new_data })
+    }
     return (
         <div className={`
-        lg:px-11
-        px-4 bg-white sticky transition-all z-10
-        ${show ? 'top-[60px]' : 'top-0'}
-        `}>
+            lg:px-11
+            px-4 bg-white sticky transition-all z-10
+            ${show ? 'top-[60px]' : 'top-0'}
+            `}>
             <div className='flex justify-between items-center py-2 text-[#111] text-[16px]'>
                 <div className="h-[36px] flex-1 flex items-center">
                     <h1 className={`
-                    transition-all duration-500
-                    ${window.pageYOffset > 10 ? 'text-[16px]' : 'text-[24px]'}
-                    `}>Men's Clothing</h1>
+                        transition-all duration-500
+                        ${window.pageYOffset > 10 ? 'text-[16px]' : 'text-[24px]'}
+                        `}>Men's Clothing</h1>
                 </div>
                 <div className="
                     lg:flex
                     hidden
                     ">
                     <div className="
-                    flex mr-8 items-center cursor-pointer
-                    "onClick={() => dispatch({ type: 'SHOW_FILTER_NAV', payload: true })}>
+                        flex mr-8 items-center cursor-pointer
+                        "onClick={() => dispatch({ type: 'SHOW_FILTER_NAV', payload: true })}>
                         <p className='mr-2' >{counter ? 'Hide' : 'Show'} Filter</p>
                         <svg
                             aria-hidden="true"
@@ -79,18 +134,19 @@ export default function FilterHeader(props) {
                     <div className="flex items-center relative cursor-pointer" onClick={() => setShowSort(!showSort)}>
                         <p className='mr-2'>Sort By</p>
                         {showSort ? <FiChevronDown></FiChevronDown> : <FiChevronUp></FiChevronUp>}
-                        <div className="
-                        absolute right-0 top-full
-                        overflow-hidden 
-                        ">
-                            <div className={`
-                            p-6 pb-4 bg-white whitespace-nowrap rounded-2xl leading-7 transition-all
-                            ${showSort ? 'translate-y-[0px]' : 'translate-y-[-200px]'}
+                        <div className={`
+                            absolute right-0 top-full
+                            overflow-hidden 
+                            ${showSort ? 'visible' : 'invisible'}
                             `}>
-                                <p className='cursor-pointer hover:text-[#757575]'>Featured</p>
-                                <p className='cursor-pointer hover:text-[#757575]'>Newest</p>
-                                <p className='cursor-pointer hover:text-[#757575]'>Price: High-Low</p>
-                                <p className='cursor-pointer hover:text-[#757575]'>Price: Low-High</p>
+                            <div className={`
+                                p-6 pb-4 bg-white whitespace-nowrap rounded-2xl leading-7 transition-all duration-500
+                                ${showSort ? 'translate-y-[0px]' : 'translate-y-[-200px]'}
+                                `}>
+                                <p className='cursor-pointer hover:text-[#757575]' onClick={() => sortFeature(data)}>Featured</p>
+                                <p className='cursor-pointer hover:text-[#757575]' onClick={() => sortNewest(data)}>Newest</p>
+                                <p className='cursor-pointer hover:text-[#757575]' onClick={() => sortHighToLow(data)}>Price: High-Low</p>
+                                <p className='cursor-pointer hover:text-[#757575]' onClick={() => sortLowToHight(data)}>Price: Low-High</p>
                             </div>
                         </div>
                     </div>
